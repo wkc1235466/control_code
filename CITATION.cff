@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated article and this repository."
+title: "Code for Bilateral Boundary Neural Operator Control for Distributed Parameter Tubular Reactors via Dynamic Event-Triggered Mechanism"
+type: software
+authors:
+  - family-names: Chen
+    given-names: Juan
+  - family-names: Wu
+    given-names: Kai-Chuang
+  - family-names: Garone
+    given-names: Emanuele
+  - family-names: Dochain
+    given-names: Denis
+  - family-names: Zhou
+    given-names: Hua-Cheng
+repository-code: "https://github.com/wkc1235466/control_code"
+url: "https://github.com/wkc1235466/control_code"
+license: MIT
+version: 1.0.0
+date-released: 2026-11-22
+keywords:
+  - process control
+  - distributed parameter systems
+  - neural operator
+  - DeepONet
+  - event-triggered control
+  - MATLAB
+abstract: "MATLAB and Python code for the numerical study of bilateral boundary neural operator control of distributed parameter tubular reactors with a dynamic event-triggered mechanism."

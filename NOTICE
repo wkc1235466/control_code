@@ -1,0 +1,17 @@
+Third-Party Notices
+
+This repository includes MATLAB files derived from the one-dimensional
+advection-diffusion simulation toolbox by Bo Zhuang (Jiangnan University):
+
+  paper_code/create_pde.m
+  paper_code/create_pde_sol.m
+  paper_code/solve_pde_step.m
+  paper_code/Dirichlet.m
+  paper_code/Neumann.m
+  paper_code/Robin.m
+  paper_code/vecfx.m
+  paper_code/vecfxt.m
+  paper_code/valft.m
+
+These files retain their original copyright notices. They are not relicensed
+under the MIT License and remain subject to the original author's terms.

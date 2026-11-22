@@ -1,5 +1,7 @@
 # Code Package for the Manuscript
 
+[![DOI](https://zenodo.org/badge/1467437184.svg)](https://doi.org/10.5281/zenodo.24439316)
+
 This directory contains the code used for the numerical study in the paper. It is organized into three projects and one shared data-generation module. Full-line comments have been removed; copyright and attribution notices are retained.
 
 ## Structure
@@ -123,4 +125,5 @@ The root `.gitignore` excludes `*.pth`, `output/`, `cache/`, `*.npz`, and `*.png
 - The code is released under the **MIT License**; see `LICENSE`.
 - `paper_code/create_pde.m` and related files come from the one-dimensional advection-diffusion toolbox by Bo Zhuang (Jiangnan University). They retain their original copyright notices and are **not** relicensed under the MIT License; see `NOTICE`.
 - Citation metadata is provided in `CITATION.cff`. Please cite the associated article and this repository.
+- Archived release: <https://doi.org/10.5281/zenodo.24439317>.
 - Full-line comments have been removed.

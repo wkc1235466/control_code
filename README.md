@@ -125,5 +125,5 @@ The root `.gitignore` excludes `*.pth`, `output/`, `cache/`, `*.npz`, and `*.png
 - The code is released under the **MIT License**; see `LICENSE`.
 - `paper_code/create_pde.m` and related files come from the one-dimensional advection-diffusion toolbox by Bo Zhuang (Jiangnan University). They retain their original copyright notices and are **not** relicensed under the MIT License; see `NOTICE`.
 - Citation metadata is provided in `CITATION.cff`. Please cite the associated article and this repository.
-- Archived release: <https://doi.org/10.5281/zenodo.24439317>.
+- Archived release: <https://doi.org/10.5281/zenodo.24439317> (version v1.0).
 - Full-line comments have been removed.

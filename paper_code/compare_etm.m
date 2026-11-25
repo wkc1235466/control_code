@@ -626,6 +626,36 @@ fprintf('  Total triggers - Left boundary: %d, Right boundary: %d\n', ...
 
 fprintf('\n========== Creating Comparison Plots ==========\n');
 
+if ~isempty(trigger_times_detm_1)
+    ETCtimes_detm_1 = length(trigger_indices_detm_1);
+    trigger_intervals_detm_1 = zeros(1, ETCtimes_detm_1);
+    for i = 2:ETCtimes_detm_1
+        trigger_intervals_detm_1(i-1) = t(trigger_indices_detm_1(i)) - t(trigger_indices_detm_1(i-1));
+        if (i == ETCtimes_detm_1)
+            if trigger_indices_detm_1(end) <= N
+                trigger_intervals_detm_1(i) = t(N) - t(trigger_indices_detm_1(end));
+            else
+                trigger_intervals_detm_1(i) = t(N) - t(trigger_indices_detm_1(end-1));
+            end
+        end
+    end
+end
+
+if ~isempty(trigger_times_detm_2)
+    ETCtimes_detm_2 = length(trigger_indices_detm_2);
+    trigger_intervals_detm_2 = zeros(1, ETCtimes_detm_2);
+    for i = 2:ETCtimes_detm_2
+        trigger_intervals_detm_2(i-1) = t(trigger_indices_detm_2(i)) - t(trigger_indices_detm_2(i-1));
+        if (i == ETCtimes_detm_2)
+            if trigger_indices_detm_2(end) <= N
+                trigger_intervals_detm_2(i) = t(N) - t(trigger_indices_detm_2(end));
+            else
+                trigger_intervals_detm_2(i) = t(N) - t(trigger_indices_detm_2(end-1));
+            end
+        end
+    end
+end
+
 total_triggers_detm = length(trigger_times_detm_1) + length(trigger_times_detm_2);
 total_triggers_setm = length(trigger_times_setm_1) + length(trigger_times_setm_2);
 
@@ -645,6 +675,15 @@ fprintf(trigger_stats_file, '  U2: %d\n', length(trigger_times_setm_2));
 fprintf(trigger_stats_file, '  Total: %d\n', total_triggers_setm);
 fclose(trigger_stats_file);
 fprintf('Trigger counts saved to: figs/trigger_counts.txt\n');
+
+panel_dir = 'figs/compare_etm';
+if ~exist(panel_dir, 'dir'); mkdir(panel_dir); end
+panelPos = [100, 100, 560, 460];
+
+save_trigger_panel(trigger_times_detm_1, trigger_intervals_detm_1, ETCtimes_detm_1, 'b', ...
+    fullfile(panel_dir, 'etm_trigger_intervals_detm_x1'), panelPos, [0 T]);
+save_trigger_panel(trigger_times_detm_2, trigger_intervals_detm_2, ETCtimes_detm_2, 'r', ...
+    fullfile(panel_dir, 'etm_trigger_intervals_detm_x2'), panelPos, [0 T]);
 
 fprintf('\n========== Creating System State Evolution Plots ==========\n');
 
@@ -783,4 +822,23 @@ function plot_TriggerIntervalDistribution(t, trigger_indices_detm, trigger_indic
 
     exportgraphics(fig_dist, fullfile(fig_dir, 'fig6_interval_distribution.png'), 'Resolution', 300);
     fprintf('Figure 6 saved: Trigger Interval Distribution (Sorted)\n');
+end
+
+function save_trigger_panel(times, intervals, etc_count, color, outpath, panelPos, xlim_vals)
+
+    fig = figure('Color', 'w', 'Position', panelPos);
+    hold on;
+    if ~isempty(times)
+        scatter(times, intervals, 15, color);
+        xlim(xlim_vals);
+        for i = 1:etc_count
+            line([times(i), times(i)], [0, intervals(i)]);
+        end
+    end
+    ax = gca; box on; ax.LineWidth = 1; ax.FontSize = 11;
+    xlabel('$t$', 'Interpreter', 'latex', 'FontSize', 28);
+    hold off;
+    exportgraphics(fig, [outpath '.png'], 'Resolution', 300);
+    fprintf('Panel saved: %s.png\n', outpath);
+    close(fig);
 end

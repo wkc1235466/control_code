@@ -93,16 +93,15 @@ These three files are sufficient to reproduce Figures 2–6 and Table 1.
 
 | Paper item | Command | Main output |
 |---|---|---|
-| Figure 2 (open-loop) | `paper_code/main.m` with `CONTROL='oplp'` | `figs/main/state_evolution_oplp_*_x1.png`, `..._x2.png` |
-| Figure 3 (kernel comparison) | `plot_kernel_comparison_3d.m` | `figs/plot_kernel/kernel_comparison_3d_combined_sys*_true/pred/err.png` |
-| Figure 4 (closed-loop) | `main.m` with `CONTROL='ctrl'` | `figs/main/state_evolution_ctrl_deeponet_x1.png`, `..._x2.png` |
-| Figure 5 (DETM states) | `compare_etm.m` | `figs/compare_etm/system_state_detm_x1.png`, `..._x2.png` |
-| Figure 6 (trigger intervals) | `compare_etm.m` | `figs/fig6_interval_distribution.png` |
+| Figure 2 (kernel comparison) | `plot_kernel_comparison_3d.m` | `figs/plot_kernel/kernel_comparison_3d_combined_sys*_true/pred/err.png` |
+| Figure 3 (closed-loop) | `main.m` with `CONTROL='ctrl'` | `figs/main/state_evolution_ctrl_deeponet_x1.png`, `..._x2.png` |
+| Figure 4 (DETM states) | `compare_etm.m` | `figs/compare_etm/system_state_detm_x1.png`, `..._x2.png` |
+| Figure 5 (trigger intervals and distribution) | `compare_etm.m` | `figs/compare_etm/etm_trigger_intervals_detm_x1.png`, `..._x2.png`, `figs/fig6_interval_distribution.png` |
 | Table 1 (trigger counts) | `compare_etm.m` | `figs/trigger_counts.txt` |
 | Table 2 (low-resolution errors) | `pi-deeponet_compare/run_lowres.py` | `pi-deeponet_compare/results/results.md` |
 | DeepONet training | `deeponet_training/DeepONet.py` | `training_results_supervised/DeepONet.pth` |
 
-Algorithm 1 is pseudocode in the paper and has no separate script.
+Algorithm 1 is pseudocode in the paper and has no separate script. The open-loop case remains available through `main.m` with `CONTROL='oplp'`, although it is no longer included in the manuscript.
 
 ## Model weights
 
